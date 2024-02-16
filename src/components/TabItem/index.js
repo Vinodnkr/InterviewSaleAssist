@@ -6,6 +6,7 @@ const TabItem = props => {
 
   const onClickTab = () => {
     setActiveTabId(tabId)
+    console.log(tabId)
   }
 
   const tabBtnClassName = isActive ? 'tab-button active' : 'tab-button'

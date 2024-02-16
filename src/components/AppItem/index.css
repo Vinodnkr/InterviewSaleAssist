@@ -60,18 +60,18 @@
   margin-right: 20px;
 }
 
-.price-discount{
+.price-discount {
   font-size: medium;
 }
-.price-original{
-  font-size: medium;
+.price-original {
+  font-size: small;
   margin-left: 5px;
 }
-.price-offer{
+.price-offer {
   color: green;
   font-size: small;
 }
-.cart-icon{
+.cart-icon {
   color: white;
   font-size: 20px;
 }

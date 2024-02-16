@@ -5,6 +5,7 @@ import {BsHandbag} from 'react-icons/bs'
 import Navbar from '../Navbar'
 import AppItem from '../AppItem'
 import TabItem from '../TabItem'
+import Footer from '../Footer'
 
 import './index.css'
 
@@ -419,6 +420,7 @@ class AppStore extends Component {
             </ul>
           </div>
         </div>
+        <Footer />
       </>
     )
   }
