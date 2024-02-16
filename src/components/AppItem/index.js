@@ -11,17 +11,17 @@ const AppItem = props => {
     <li className="app-item">
       <img className="app-image" src={imageUrl} alt={appName} />
       <p className="app-name">The Metro Movers</p>
-      <div className="priceList">
-        <div className="priceListLine">
-          <p style={{fontSize: 'medium'}}>$49</p>
-          <p style={{fontSize: 'small'}}>$99</p>
-          <p style={{color: 'green', fontSize: 'small'}}>(50% off)</p>
+      <div className="price-list">
+        <div className="price-list-line">
+          <p className="price-discount">$49</p>
+          <p className="price-original">$99</p>
+          <p className="price-offer">(50% off)</p>
         </div>
-
-        <MdOutlineAddShoppingCart style={{color: 'black'}} />
+        <div>
+          <MdOutlineAddShoppingCart className="cart-icon" />
+        </div>
       </div>
     </li>
   )
 }
-
 export default AppItem

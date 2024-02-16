@@ -36,7 +36,6 @@
 }
 
 .app-name {
-  
   font-family: 'Bree Serif';
   font-size: 16px;
 }
@@ -47,17 +46,32 @@
     font-size: 24px;
   }
 }
-.priceList{
+.price-list {
   display: flex;
 
   flex-direction: row;
   justify-content: space-between;
 }
-.priceListLine{
+.price-list-line {
   display: flex;
-  
+
   flex-direction: row;
   align-items: center;
   margin-right: 20px;
- 
+}
+
+.price-discount{
+  font-size: medium;
+}
+.price-original{
+  font-size: medium;
+  margin-left: 5px;
+}
+.price-offer{
+  color: green;
+  font-size: small;
+}
+.cart-icon{
+  color: white;
+  font-size: 20px;
 }

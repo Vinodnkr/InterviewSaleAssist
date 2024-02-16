@@ -14,7 +14,6 @@
 }
 
 .heading {
-  
   font-family: 'Bree Serif';
   font-size: 40px;
   margin-top: 64px;
@@ -86,10 +85,9 @@
   padding-left: 0px;
 }
 
-.productList{
+.productList {
   list-style-type: none;
   display: flex;
   margin-right: 50%;
   margin-left: 50%;
-
 }

@@ -1,9 +1,11 @@
 import {Component} from 'react'
+import axios from 'axios'
 import {GiBeachBag, GiGymBag, GiShoulderBag, GiSchoolBag} from 'react-icons/gi'
 import {BsHandbag} from 'react-icons/bs'
 import Navbar from '../Navbar'
 import AppItem from '../AppItem'
 import TabItem from '../TabItem'
+
 import './index.css'
 
 const SEARCH_ICON_URL =
@@ -52,263 +54,292 @@ const tabsList = [
   },
 ]
 
-const appsList = [
-  {
-    appId: 0,
-    appName: 'The Metro Movers',
+/*
 
-    imageUrl: 'https://i.ibb.co/gRqVnxD/ladies-vanity-bag.jpg',
-    category: 'SOCIAL',
+const appsList=
+[
+  {
+    "appId": 0,
+    "imageUrl": "https://i.ibb.co/gRqVnxD/ladies-vanity-bag.jpg",
+    "category": "HAND"
   },
   {
-    appId: 1,
-    appName: 'Messenger',
-    imageUrl: 'https://i.ibb.co/gRqVnxD/ladies-vanity-bag.jpg',
-    category: 'SOCIAL',
+    "appId": 1,
+    "imageUrl": "https://i.ibb.co/gRqVnxD/ladies-vanity-bag.jpg",
+    "category": "HAND"
   },
   {
-    appId: 2,
-    appName: 'WhatsApp',
-    imageUrl: 'https://i.ibb.co/QQZsF2t/header-totebags2.jpg',
-    category: 'SOCIAL',
+    "appId": 2,
+    "imageUrl": "https://i.ibb.co/QQZsF2t/header-totebags2.jpg",
+    "category": "HAND"
   },
   {
-    appId: 3,
-    appName: 'Instagram',
-    imageUrl: 'https://i.ibb.co/QQZsF2t/header-totebags2.jpg',
-    category: 'SOCIAL',
+    "appId": 3,
+    "imageUrl": "https://i.ibb.co/QQZsF2t/header-totebags2.jpg",
+    "category": "HAND"
   },
   {
-    appId: 344,
-    appName: 'Instagram',
-    imageUrl: 'https://i.ibb.co/QQZsF2t/header-totebags2.jpg',
-    category: 'SOCIAL',
+    "appId": 344,
+    "imageUrl": "https://i.ibb.co/QQZsF2t/header-totebags2.jpg",
+    "category": "HAND"
   },
   {
-    appId: 4,
-    appName: 'Snapchat',
-    imageUrl: 'https://i.ibb.co/QQZsF2t/header-totebags2.jpg',
-    category: 'SOCIAL',
+    "appId": 4,
+    "imageUrl": "https://i.ibb.co/QQZsF2t/header-totebags2.jpg",
+    "category": "HAND"
   },
   {
-    appId: 5,
-    appName: 'laptop',
-    imageUrl: 'https://i.ibb.co/QQZsF2t/header-totebags2.jpg',
-    category: 'SOCIAL1',
+    "appId": 5,
+    "imageUrl": "https://i.ibb.co/QQZsF2t/header-totebags2.jpg",
+    "category": "LAPTOP"
   },
   {
-    appId: 6,
-    appName: 'Pinterest',
-    imageUrl: 'https://i.ibb.co/dDZkRrg/laptop-sleeve-15-6-inch.jpg',
-    category: 'SOCIAL1',
+    "appId": 6,
+    "imageUrl": "https://i.ibb.co/dDZkRrg/laptop-sleeve-15-6-inch.jpg",
+    "category": "LAPTOP"
   },
   {
-    appId: 7,
-    appName: 'WeChat',
-    imageUrl: 'https://i.ibb.co/dDZkRrg/laptop-sleeve-15-6-inch.jpg',
-    category: 'SOCIAL1',
+    "appId": 7,
+    "imageUrl": "https://i.ibb.co/dDZkRrg/laptop-sleeve-15-6-inch.jpg",
+    "category": "LAPTOP"
   },
   {
-    appId: 8,
-    appName: 'LinkedIn',
-    imageUrl:
-      'https://i.ibb.co/xq6Qzm9/63e4ea75654d35174d34d1dc-laptop-sleeve.jpg',
-    category: 'SOCIAL1',
+    "appId": 8,
+    "imageUrl": "https://i.ibb.co/xq6Qzm9/63e4ea75654d35174d34d1dc-laptop-sleeve.jpg",
+    "category": "LAPTOP"
   },
   {
-    appId: 9,
-    appName: 'Telegram',
-    imageUrl:
-      'https://i.ibb.co/xq6Qzm9/63e4ea75654d35174d34d1dc-laptop-sleeve.jpg',
-    category: 'SOCIAL1',
+    "appId": 9,
+    "imageUrl": "https://i.ibb.co/xq6Qzm9/63e4ea75654d35174d34d1dc-laptop-sleeve.jpg",
+    "category": "LAPTOP"
   },
   {
-    appId: 10,
-    appName: 'Subway Surfers',
-    imageUrl: 'https://i.ibb.co/gRqVnxD/ladies-vanity-bag.jpg',
-    category: 'GAMES',
+    "appId": 10,
+   
+    "imageUrl": "https://i.ibb.co/gRqVnxD/ladies-vanity-bag.jpg",
+    "category": "VANITY"
   },
   {
-    appId: 11,
-    appName: 'Crossy Road',
-    imageUrl: 'https://i.ibb.co/gRqVnxD/ladies-vanity-bag.jpg',
-    category: 'GAMES',
+    "appId": 11,
+   
+    "imageUrl": "https://i.ibb.co/gRqVnxD/ladies-vanity-bag.jpg",
+    "category": "VANITY"
   },
   {
-    appId: 12,
-    appName: 'Super Chef',
-    imageUrl: 'https://i.ibb.co/gRqVnxD/ladies-vanity-bag.jpg',
-    category: 'GAMES',
+    "appId": 12,
+   
+    "imageUrl": "https://i.ibb.co/gRqVnxD/ladies-vanity-bag.jpg",
+    "category": "VANITY"
   },
   {
-    appId: 13,
-    appName: 'Angry Birds',
-    imageUrl: 'https://i.ibb.co/gRqVnxD/ladies-vanity-bag.jpg',
-    category: 'GAMES',
+    "appId": 13,
+    
+    "imageUrl": "https://i.ibb.co/gRqVnxD/ladies-vanity-bag.jpg",
+    "category": "VANITY"
   },
   {
-    appId: 14,
-    appName: 'Hill Climb 2',
-    imageUrl: 'https://i.ibb.co/gRqVnxD/ladies-vanity-bag.jpg',
-    category: 'GAMES',
+    "appId": 14,
+    
+    "imageUrl": "https://i.ibb.co/gRqVnxD/ladies-vanity-bag.jpg",
+    "category": "VANITY"
   },
   {
-    appId: 15,
-    appName: 'Temple Run',
-    imageUrl: 'https://i.ibb.co/gRqVnxD/ladies-vanity-bag.jpg',
-    category: 'GAMES',
+    "appId": 15,
+    
+    "imageUrl": "https://i.ibb.co/gRqVnxD/ladies-vanity-bag.jpg",
+    "category": "VANITY"
   },
   {
-    appId: 16,
-    appName: 'Dr. Driving',
-    imageUrl: 'https://i.ibb.co/gRqVnxD/ladies-vanity-bag.jpg',
-    category: 'GAMES',
+    "appId": 16,
+    
+    "imageUrl": "https://i.ibb.co/gRqVnxD/ladies-vanity-bag.jpg",
+    "category": "VANITY"
   },
   {
-    appId: 17,
-    appName: 'Smurfs Bubble',
-    imageUrl: 'https://i.ibb.co/gRqVnxD/ladies-vanity-bag.jpg',
-    category: 'GAMES',
+    "appId": 17,
+    
+    "imageUrl": "https://i.ibb.co/gRqVnxD/ladies-vanity-bag.jpg",
+    "category": "VANITY"
   },
   {
-    appId: 18,
-    appName: 'Grade Learning',
-    imageUrl: 'https://i.ibb.co/gRqVnxD/ladies-vanity-bag.jpg',
-    category: 'GAMES',
+    "appId": 18,
+    
+    "imageUrl": "https://i.ibb.co/gRqVnxD/ladies-vanity-bag.jpg",
+    "category": "VANITY"
   },
   {
-    appId: 19,
-    appName: 'My Talking Tom',
-    imageUrl: 'https://i.ibb.co/gRqVnxD/ladies-vanity-bag.jpg',
-    category: 'GAMES',
+    "appId": 19,
+    
+    "imageUrl": "https://i.ibb.co/gRqVnxD/ladies-vanity-bag.jpg",
+    "category": "VANITY"
   },
   {
-    appId: 20,
-    appName: 'Inshorts',
-    imageUrl: 'https://i.ibb.co/ByKw6tn/15970746-30026271-1000.jpg',
-    category: 'NEWS',
+    "appId": 20,
+  
+    "imageUrl": "https://i.ibb.co/ByKw6tn/15970746-30026271-1000.jpg",
+    "category": "TOTE"
   },
   {
-    appId: 21,
-    appName: 'Way2News',
-    imageUrl: 'https://i.ibb.co/ByKw6tn/15970746-30026271-1000.jpg',
-    category: 'NEWS',
+    "appId": 21,
+    
+    "imageUrl": "https://i.ibb.co/ByKw6tn/15970746-30026271-1000.jpg",
+    "category": "TOTE"
   },
   {
-    appId: 22,
-    appName: 'Google News',
-    imageUrl: 'https://i.ibb.co/QQZsF2t/header-totebags2.jpg',
-    category: 'NEWS',
+    "appId": 22,
+   
+    "imageUrl": "https://i.ibb.co/QQZsF2t/header-totebags2.jpg",
+    "category": "TOTE"
   },
   {
-    appId: 23,
-    appName: 'Flipboard',
-    imageUrl: 'https://i.ibb.co/QQZsF2t/header-totebags2.jpg',
-    category: 'NEWS',
+    "appId": 23,
+   
+    "imageUrl": "https://i.ibb.co/QQZsF2t/header-totebags2.jpg",
+    "category": "TOTE"
   },
   {
-    appId: 24,
-    appName: 'SmartNews',
-    imageUrl:
-      'https://i.ibb.co/vDqr6Pt/Taylor-Swift-August-Tote-Bag-Mockup-600x706.jpg',
-    category: 'NEWS',
+    "appId": 24,
+   
+    "imageUrl": "https://i.ibb.co/vDqr6Pt/Taylor-Swift-August-Tote-Bag-Mockup-600x706.jpg",
+    "category": "TOTE"
   },
   {
-    appId: 25,
-    appName: 'BBC News',
-    imageUrl: 'https://i.ibb.co/SsBbkyp/65.png',
-    category: 'NEWS1',
+    "appId": 25,
+  
+    "imageUrl": "https://i.ibb.co/SsBbkyp/65.png",
+    "category": "SLINGS"
   },
   {
-    appId: 26,
-    appName: 'CNN News',
-    imageUrl: 'https://i.ibb.co/SsBbkyp/65.png',
-    category: 'NEWS1',
+    "appId": 26,
+
+    "imageUrl": "https://i.ibb.co/SsBbkyp/65.png",
+    "category": "SLINGS"
   },
   {
-    appId: 27,
-    appName: 'Daily Wire',
-    imageUrl: 'https://i.ibb.co/SsBbkyp/65.png',
-    category: 'NEWS1',
+    "appId": 27,
+  
+    "imageUrl": "https://i.ibb.co/SsBbkyp/65.png",
+    "category": "SLINGS"
   },
   {
-    appId: 28,
-    appName: 'AP News',
-    imageUrl: 'https://i.ibb.co/SsBbkyp/65.png',
-    category: 'NEWS1',
+    "appId": 28,
+    
+    "imageUrl": "https://i.ibb.co/SsBbkyp/65.png",
+    "category": "SLINGS"
   },
   {
-    appId: 29,
-    appName: 'News Break',
-    imageUrl: 'https://i.ibb.co/SsBbkyp/65.png',
-    category: 'NEWS1',
+    "appId": 29,
+  
+    "imageUrl": "https://i.ibb.co/SsBbkyp/65.png",
+    "category": "SLINGS"
   },
   {
-    appId: 30,
-    appName: 'Zomato',
-    imageUrl: 'https://i.ibb.co/XCpfR3W/71xk-D6pv-FL-AC-UY1100.jpg',
-    category: 'FOOD',
+    "appId": 30,
+    
+    "imageUrl": "https://i.ibb.co/XCpfR3W/71xk-D6pv-FL-AC-UY1100.jpg",
+    "category": "DAFFLE"
   },
   {
-    appId: 31,
-    appName: 'Swiggy',
-    imageUrl: 'https://i.ibb.co/XCpfR3W/71xk-D6pv-FL-AC-UY1100.jpg',
-    category: 'FOOD',
+    "appId": 31,
+   
+    "imageUrl": "https://i.ibb.co/XCpfR3W/71xk-D6pv-FL-AC-UY1100.jpg",
+    "category": "DAFFLE"
   },
   {
-    appId: 32,
-    appName: "Domino's Pizza",
-    imageUrl: 'https://i.ibb.co/G7VBrCs/024A7395.jpg',
-    category: 'FOOD',
+    "appId": 32,
+    
+    "imageUrl": "https://i.ibb.co/G7VBrCs/024A7395.jpg",
+    "category": "DAFFLE"
   },
   {
-    appId: 33,
-    appName: 'All in One',
-    imageUrl: 'https://i.ibb.co/G7VBrCs/024A7395.jpg',
-    category: 'FOOD',
+    "appId": 33,
+   
+    "imageUrl": "https://i.ibb.co/G7VBrCs/024A7395.jpg",
+    "category": "DAFFLE"
   },
   {
-    appId: 34,
-    appName: 'Instacart',
-    imageUrl: 'https://i.ibb.co/G7VBrCs/024A7395.jpg',
-    category: 'FOOD',
+    "appId": 34,
+    
+    "imageUrl": "https://i.ibb.co/G7VBrCs/024A7395.jpg",
+    "category": "DAFFLE"
   },
   {
-    appId: 35,
-    appName: 'Saucey',
-    imageUrl: 'https://i.ibb.co/G7VBrCs/024A7395.jpg',
-    category: 'FOOD',
+    "appId": 35,
+   
+    "imageUrl": "https://i.ibb.co/G7VBrCs/024A7395.jpg",
+    "category": "DAFFLE"
   },
   {
-    appId: 36,
-    appName: 'Waitr',
-    imageUrl: 'https://i.ibb.co/G7VBrCs/024A7395.jpg',
-    category: 'FOOD',
+    "appId": 36,
+
+    "imageUrl": "https://i.ibb.co/G7VBrCs/024A7395.jpg",
+    "category": "BACKPACK"
   },
   {
-    appId: 37,
-    appName: 'Grubhub',
-    imageUrl: 'https://i.ibb.co/G7VBrCs/024A7395.jpg',
-    category: 'FOOD',
+    "appId": 37,
+  
+    "imageUrl": "https://i.ibb.co/G7VBrCs/024A7395.jpg",
+    "category": "BACKPACK"
   },
   {
-    appId: 38,
-    appName: 'Mercato',
-    imageUrl: 'https://i.ibb.co/G7VBrCs/024A7395.jpg',
-    category: 'FOOD',
+    "appId": 38,
+    
+    "imageUrl": "https://i.ibb.co/G7VBrCs/024A7395.jpg",
+    "category": "BACKPACK"
   },
   {
-    appId: 39,
-    appName: 'DOT',
-    imageUrl: 'https://i.ibb.co/G7VBrCs/024A7395.jpg',
-    category: 'FOOD',
-  },
+    "appId": 39,
+   
+    "imageUrl": "https://i.ibb.co/G7VBrCs/024A7395.jpg",
+    "category": "BACKPACK"
+  }
 ]
+*/
 
 class AppStore extends Component {
   state = {
     searchInput: '',
     activeTabId: tabsList[0].tabId,
+    appsList: [],
+  }
+
+  /*
+  componentDidMount() {
+    fetch('https://mocki.io/v1/574fc4e5-403d-4b1f-8cea-8c9b9bcef15d')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        //console.log( data);
+        this.setState({
+          
+          appsList: data,
+          
+          
+        });
+        
+      })
+      .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+      });
+  }
+*/
+
+  componentDidMount() {
+    axios
+      .get('https://mocki.io/v1/574fc4e5-403d-4b1f-8cea-8c9b9bcef15d')
+      .then(response => {
+        // console.log(response.data)
+        this.setState({
+          appsList: response.data,
+        })
+      })
+      .catch(error => {
+        console.error('There was a problem with the fetch operation:', error)
+      })
   }
 
   setActiveTabId = tabId => {
@@ -330,6 +361,7 @@ class AppStore extends Component {
 
   getSearchResults = () => {
     const {searchInput} = this.state
+    const {appsList} = this.state
     const searchResults = appsList.filter(eachApp =>
       eachApp.appName.toLowerCase().includes(searchInput.toLowerCase()),
     )
@@ -338,7 +370,7 @@ class AppStore extends Component {
   }
 
   render() {
-    const {searchInput, activeTabId} = this.state
+    const {searchInput, activeTabId, appsList} = this.state
     const searchResults = this.getSearchResults()
     const filteredApps = this.getActiveTabApps(searchResults)
 
