@@ -84,7 +84,7 @@
   height: 50px;
 }
 @media (min-width: 768px) {
-  .mobile-show{
+  .mobile-show {
     display: none;
   }
 }
@@ -120,12 +120,11 @@
     margin-top: 20px;
     margin-right: 20px;
   }
-  .hide{
+  .hide {
     display: none;
   }
 }
 
-.footer-decleration{
+.footer-decleration {
   text-align: center;
 }
-
