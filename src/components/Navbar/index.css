@@ -1,0 +1,19 @@
+.nav_bar {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    width: 100vw;
+
+
+   
+  }
+  
+  .icons_container {
+    display: flex; 
+    gap: 10px; 
+    margin-right: 20px;
+  }
+  
+  .nav_heading{
+    margin: 30px;
+  }

@@ -2,7 +2,7 @@ import './index.css'
 
 const TabItem = props => {
   const {tabDetails, setActiveTabId, isActive} = props
-  const {tabId, displayText} = tabDetails
+  const {tabId, displayText, url} = tabDetails
 
   const onClickTab = () => {
     setActiveTabId(tabId)
@@ -13,6 +13,8 @@ const TabItem = props => {
   return (
     <li className="tab-item">
       <button type="button" onClick={onClickTab} className={tabBtnClassName}>
+        {url}
+        <br />
         {displayText}
       </button>
     </li>

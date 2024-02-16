@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   list-style-type: none;
-  background-color: #ffffff;
+  color: white;
   border-radius: 12px;
   padding-top: 16px;
   margin-left: 5px;
@@ -36,7 +36,7 @@
 }
 
 .app-name {
-  color: #1e293b;
+  
   font-family: 'Bree Serif';
   font-size: 16px;
 }
@@ -46,4 +46,18 @@
     font-family: 'Bree Serif';
     font-size: 24px;
   }
+}
+.priceList{
+  display: flex;
+
+  flex-direction: row;
+  justify-content: space-between;
+}
+.priceListLine{
+  display: flex;
+  
+  flex-direction: row;
+  align-items: center;
+  margin-right: 20px;
+ 
 }
